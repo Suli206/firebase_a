@@ -1,3 +1,4 @@
+import 'package:firebase_a/features/home/alert_dialog/add_dialg.dart';
 import 'package:firebase_a/theme/app_text_styles.dart';
 import 'package:firebase_a/widget/notes_wid.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class NotesHome extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              print('add');
+              addTeFiDial(context);
             },
             icon: const Icon(
               Icons.add,
