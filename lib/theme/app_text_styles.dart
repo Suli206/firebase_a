@@ -10,8 +10,9 @@ abstract class AppTextStyles {
   static TextStyle s18W500({Color? color}) => TextStyle(
         color: color ?? Colors.black,
         fontSize: 18,
-        height: 0.8,
+        height: 1,
         fontWeight: FontWeight.w500,
+        overflow: TextOverflow.ellipsis,
       );
 
   static TextStyle s22W400({Color? color}) => TextStyle(

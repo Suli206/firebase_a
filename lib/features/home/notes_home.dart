@@ -1,4 +1,5 @@
 import 'package:firebase_a/theme/app_text_styles.dart';
+import 'package:firebase_a/widget/notes_wid.dart';
 import 'package:flutter/material.dart';
 
 class NotesHome extends StatelessWidget {
@@ -12,13 +13,30 @@ class NotesHome extends StatelessWidget {
           'Notes',
           style: AppTextStyles.s22W400(),
         ),
-      ),
-      body: Column(
-        children: [
-          Container(),
+        actions: [
+          IconButton(
+            onPressed: () {
+              print('add');
+            },
+            icon: const Icon(
+              Icons.add,
+              color: Colors.white,
+              size: 32,
+            ),
+          ),
         ],
+      ),
+      body: ListView.builder(
+        padding:
+            const EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 30),
+        itemCount: 2,
+        itemBuilder: (context, index) => NotesWid(
+          text1: 'asf',
+          text2: 'asdfasdf',
+          onDelete: () {},
+          onChange: () {},
+        ),
       ),
     );
   }
 }
-
