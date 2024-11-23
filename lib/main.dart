@@ -1,11 +1,10 @@
 import 'package:firebase_a/features/auth/Sing%20Up/sing_up.dart';
-import 'package:firebase_a/features/home/home.dart';
+import 'package:firebase_a/features/home/notes_home.dart';
 import 'package:firebase_a/widget/app_unfocuser.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase/firebase_options.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +23,7 @@ class Main extends StatelessWidget {
     return AppUnfocuser(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: isRegistered ? const Home() : const SingUpSreen(),
+        home: isRegistered ? const NotesHome() : const SingUpSreen(),
       ),
     );
   }

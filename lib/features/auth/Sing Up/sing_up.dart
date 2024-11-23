@@ -1,6 +1,6 @@
 import 'package:firebase_a/features/auth/Sing%20In/sing_in.dart';
 import 'package:firebase_a/features/auth/Sing%20Up/cubit/up_singl_cubit.dart';
-import 'package:firebase_a/features/home/home.dart';
+import 'package:firebase_a/features/home/notes_home.dart';
 import 'package:firebase_a/theme/app_text_styles.dart';
 import 'package:firebase_a/widget/custom_text_fields.dart';
 import 'package:flutter/material.dart';
@@ -119,7 +119,7 @@ class _SingUpSreenState extends State<SingUpSreen> {
                       Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Home(),
+                          builder: (context) => const NotesHome(),
                         ),
                         (_) => false,
                       );

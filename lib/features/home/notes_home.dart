@@ -1,8 +1,8 @@
 import 'package:firebase_a/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class NotesHome extends StatelessWidget {
+  const NotesHome({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,3 +21,4 @@ class Home extends StatelessWidget {
     );
   }
 }
+
