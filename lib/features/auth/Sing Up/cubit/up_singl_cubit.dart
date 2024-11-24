@@ -17,6 +17,7 @@ class UpSinglCubit extends Cubit<UpSinglState> {
       );
       final prefs = await SharedPreferences.getInstance();
       prefs.setBool('user', true);
+      prefs.setString('email', email);
       emit(const UpSinglState.success());
     } on FirebaseAuthException catch (e) {
       /// Адилет Байке могул жакты chat gbt кылды 👇////////////////

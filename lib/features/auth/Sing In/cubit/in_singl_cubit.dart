@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 part 'in_singl_cubit.freezed.dart';
 part 'in_singl_state.dart';
 
@@ -16,6 +17,7 @@ class InSinglCubit extends Cubit<InSinglState> {
       );
       final prefs = await SharedPreferences.getInstance();
       prefs.setBool('user', true);
+      prefs.setString('email', email);
       emit(const InSinglState.success());
     } on FirebaseAuthException catch (e) {
       /// Адилет Байке могул жакты chat gbt кылды 👇////////////////

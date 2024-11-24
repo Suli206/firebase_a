@@ -1,11 +1,13 @@
+import 'package:firebase_a/firebase/firebase_crud.dart';
 import 'package:flutter/material.dart';
 
-addTeFiDial(BuildContext context) {
+addTeFiDial(BuildContext contexT) {
   final TextEditingController controllerName = TextEditingController();
   final TextEditingController controllerDescription = TextEditingController();
+  final FirebaseCrud fire = FirebaseCrud();
 
   showDialog(
-    context: context,
+    context: contexT,
     builder: (context) => AlertDialog(
       content: Column(
         mainAxisSize: MainAxisSize.min,
@@ -39,7 +41,8 @@ addTeFiDial(BuildContext context) {
           child: const Text('Cancel'),
         ),
         ElevatedButton(
-          onPressed: () {
+          onPressed: () async {
+            await fire.addNote(controllerName.text, controllerDescription.text);
             Navigator.of(context).pop();
           },
           child: const Text('Save'),
