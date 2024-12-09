@@ -1,5 +1,5 @@
 import 'package:firebase_a/features/auth/Sing%20Up/sing_up.dart';
-import 'package:firebase_a/features/home/notes_home.dart';
+import 'package:firebase_a/features/navigator_sreen/navi_screen.dart';
 import 'package:firebase_a/widget/app_unfocuser.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +23,12 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppUnfocuser(
       child: MaterialApp(
+        theme: ThemeData.light().copyWith(
+          splashFactory: NoSplash.splashFactory, // bol onTap
+          highlightColor: Colors.transparent, // mali onTap
+        ),
         debugShowCheckedModeBanner: false,
-        home: isRegistered ? const NotesHome() : const SingUpSreen(),
+        home: isRegistered ? const NaviScreen() : const SingUpSreen(),
       ),
     );
   }

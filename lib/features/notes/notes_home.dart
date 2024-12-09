@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_a/features/home/alert_dialog/add_dialg.dart';
-import 'package:firebase_a/features/home/alert_dialog/change_dialog.dart';
+import 'package:firebase_a/features/notes/alert_dialog/add_dialg.dart';
+import 'package:firebase_a/features/notes/alert_dialog/change_dialog.dart';
 import 'package:firebase_a/firebase/firebase_crud.dart';
 import 'package:firebase_a/theme/app_text_styles.dart';
 import 'package:firebase_a/widget/notes_wid.dart';
@@ -45,7 +45,12 @@ class _NotesHomeState extends State<NotesHome> {
             List notesList = snapshot.data!.docs;
             return ListView.builder(
                 padding: const EdgeInsets.only(
-                    top: 16, left: 16, right: 16, bottom: 30),
+                  top: 16,
+                  left: 16,
+                  right: 16,
+                  bottom: 0,
+                  // bottom: 30,
+                ),
                 itemCount: notesList.length,
                 itemBuilder: (context, index) {
                   DocumentSnapshot document = notesList[index];
