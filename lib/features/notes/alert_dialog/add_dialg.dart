@@ -1,7 +1,7 @@
 import 'package:firebase_a/firebase/firebase_crud.dart';
 import 'package:flutter/material.dart';
 
-addTeFiDial(BuildContext contexT) {
+addTeFiDial(BuildContext contexT) async {
   final TextEditingController controllerName = TextEditingController();
   final TextEditingController controllerDescription = TextEditingController();
   final FirebaseCrud fire = FirebaseCrud();

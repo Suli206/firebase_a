@@ -15,9 +15,16 @@ void main() async {
   runApp(Main(isRegistered: isRegi));
 }
 
-class Main extends StatelessWidget {
+class Main extends StatefulWidget {
   const Main({super.key, required this.isRegistered});
   final bool isRegistered;
+
+  @override
+  State<Main> createState() => _MainState();
+}
+
+class _MainState extends State<Main> {
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +35,7 @@ class Main extends StatelessWidget {
           highlightColor: Colors.transparent, // mali onTap
         ),
         debugShowCheckedModeBanner: false,
-        home: isRegistered ? const NaviScreen() : const SingUpSreen(),
+        home: widget.isRegistered ? const NaviScreen() : const SingUpSreen(),
       ),
     );
   }

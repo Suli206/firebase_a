@@ -14,6 +14,8 @@ class NaviScreen extends StatefulWidget {
 class _NaviScreenState extends State<NaviScreen> {
   int index = 0;
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

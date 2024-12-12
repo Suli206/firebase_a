@@ -18,6 +18,7 @@ class InSinglCubit extends Cubit<InSinglState> {
       final prefs = await SharedPreferences.getInstance();
       prefs.setBool('user', true);
       prefs.setString('email', email);
+      prefs.setString('pass', password);
       emit(const InSinglState.success());
     } on FirebaseAuthException catch (e) {
       /// Адилет Байке могул жакты chat gbt кылды 👇////////////////

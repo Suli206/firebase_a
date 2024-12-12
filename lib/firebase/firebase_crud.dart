@@ -1,11 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FirebaseCrud {
-  final CollectionReference notes =
-      FirebaseFirestore.instance.collection('Notes');
+  late CollectionReference notes;
+
+  collectionRef() async {
+    final pref = await SharedPreferences.getInstance();
+    final email = pref.getString('email');
+    if (email != null) {
+      notes = FirebaseFirestore.instance.collection(email);
+    } else {
+      print('ne poluchilos sozdat collection');
+    }
+  }
 
 // Add
-  addNote(String name, String description) {
+  addNote(String name, String description) async {
+    await collectionRef();
     return notes.add({
       "Name": name,
       "Description": description,
@@ -14,12 +25,14 @@ class FirebaseCrud {
   }
 
 // Read
-  Stream<QuerySnapshot> readNotes() {
-    return notes.orderBy("time", descending: true).snapshots();
+  Stream<QuerySnapshot> readNotes() async* {
+    await collectionRef();
+    yield* notes.orderBy("time", descending: true).snapshots();
   }
 
 // UpDate
-  updateNotes(String newName, String newDescription, String docId) {
+  updateNotes(String newName, String newDescription, String docId) async {
+    await collectionRef();
     return notes.doc(docId).update({
       "Name": newName,
       "Description": newDescription,
@@ -27,7 +40,8 @@ class FirebaseCrud {
   }
 
 // Delete
-  deleteNotes(String docId) {
+  deleteNotes(String docId) async {
+    await collectionRef();
     return notes.doc(docId).delete();
   }
 }
